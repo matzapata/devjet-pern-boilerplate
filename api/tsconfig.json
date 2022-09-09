@@ -3,6 +3,8 @@
         "rootDir": "./src", 
         "outDir": "./build",
         "lib": ["ESNext", "DOM"],
-        "strict": true 
-    }
+        "strict": true, 
+        "baseUrl": "src"
+    },
+    "include": ["src"]
 }
