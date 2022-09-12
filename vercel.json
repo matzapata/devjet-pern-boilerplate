@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "buildCommand": "cd api && yarn build && cd ../client && yarn build",
+    "builds": [
+        {
+            "src": "api/build/app.js",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": [
+                    "api/build/**"
+                ]
+            }
+        },
+        {
+            "src": "client/build/**",
+            "use": "@vercel/static",
+            "config": {
+                "includeFiles": [
+                    "client/build/**"
+                ]
+            }
+        }
+    ],
+    "routes": [
+        { "src": "/api/(.*)", "dest": "api/build/app.js" },
+        { "src": "/static/(.*)", "dest": "client/build/static/$1" },
+        { "src": "/(.*).(svg|ico|json|txt)", "dest": "client/build/$1.$2" },
+        { "src": "/(.*)", "dest": "client/build/index.html" }
+    ]
+}
