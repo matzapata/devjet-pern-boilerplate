@@ -1,5 +1,5 @@
 
-# Express react starter template
+# Express react starter template from usedevjet.com
 
 Backend features
 * Express with cors configuration
